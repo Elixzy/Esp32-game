@@ -141,4 +141,4 @@ def play(pin, melody, duty, speed):
         pwm.duty(duty)
         time.sleep(figures[i[-2:]]*speed)
         pwm.duty(0)
-        time.sleep(figures[i[-2:]])
+        time.sleep(figures[i[-2:]]*speed/1.30)
