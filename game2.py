@@ -9,9 +9,9 @@ import time
 i2c = SoftI2C( Pin(4), Pin(16),freq=400000)
 oled = SSD1306_I2C(128,64, i2c)
 
-btn0 = Pin(26, Pin.IN, Pin.PULL_DOWN)
-btn1 = Pin(23, Pin.IN, Pin.PULL_DOWN)
-btn2 = Pin(25, Pin.IN, Pin.PULL_DOWN)
+btn0 = Pin(33, Pin.IN, Pin.PULL_DOWN)
+btn1 = Pin(22, Pin.IN, Pin.PULL_DOWN)
+btn2 = Pin(21, Pin.IN, Pin.PULL_DOWN)
 buzzer = Pin(27, Pin.OUT)
 pwm = PWM(buzzer, freq=4000, duty=0)
 
@@ -188,7 +188,7 @@ while True:
         for i in enemies:
             oled.rect(i[1], i[0], 10, 10, 1)
 
-            if ((a_x<=i[0]<=(a_x+19)) or (a_x<=i[0]+9<=(a_x+19))) and i[1]==110:
+            if ((a_x<=i[0]<=(a_x+19)) or (a_x<=i[0]+9<=(a_x+19))) and i[1]>=110:
                 run=False
                 oled.fill(0)
                 fbuf = framebuf.FrameBuffer(bytearray(xd), 128, 64, framebuf.MONO_HLSB)
